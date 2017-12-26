@@ -4,7 +4,7 @@
   "description": "Integration with Twitter <-> Telegram",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Nice test :)\""
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,12 @@
   ],
   "author": "Tiago Danin <TiagoDanin@outlook.com> (https://TiagoDanin.github.io)",
   "license": "GPL-3.0",
+  "dependencies": {
+    "cron": "1.3.0",
+    "node-datetime": "2.0.3",
+    "node-telegram-bot-api": "0.30.0",
+    "twitter": "1.7.1"
+  },
   "bugs": {
     "url": "https://github.com/TiagoDanin/TTgram/issues"
   },
