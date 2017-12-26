@@ -1,0 +1,27 @@
+{
+  "name": "ttgram",
+  "version": "1.0.0",
+  "description": "Integration with Twitter <-> Telegram",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TiagoDanin/TTgram.git"
+  },
+  "keywords": [
+    "telegram",
+    "telegram-bot",
+    "bot",
+    "telegrambot",
+    "twitter",
+    "intregration"
+  ],
+  "author": "Tiago Danin <TiagoDanin@outlook.com> (https://TiagoDanin.github.io)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/TiagoDanin/TTgram/issues"
+  },
+  "homepage": "https://github.com/TiagoDanin/TTgram#readme"
+}
