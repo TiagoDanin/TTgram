@@ -1,4 +1,7 @@
 # TTgram
+
+[![NPM](https://nodei.co/npm/ttgram.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/ttgram/)
+
 Integration with Twitter <-> Telegram
 
 # Setup
