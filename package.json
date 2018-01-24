@@ -4,7 +4,8 @@
   "description": "Integration with Twitter <-> Telegram",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Nice test :)\""
+    "test": "echo \"Nice test :)\"",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -22,8 +23,9 @@
   "license": "GPL-3.0",
   "dependencies": {
     "cron": "1.3.0",
+    "debug": "3.1.0",
     "node-datetime": "2.0.3",
-    "node-telegram-bot-api": "0.30.0",
+    "telegraf": "3.17.5",
     "twitter": "1.7.1"
   },
   "bugs": {

@@ -1,9 +1,13 @@
-var Twitter = require('twitter')
-var TelegramBot = require('node-telegram-bot-api')
-var CronJob = require('cron').CronJob
-var dateTime = require('node-datetime')
+const Twitter = require('twitter')
+const Telegraf = require('telegraf')
+const debug = require('debug')
+const CronJob = require('cron').CronJob
+const dateTime = require('node-datetime')
 
-var client = new Twitter({
+const log = debug('TTgram:bot')
+const logError = debug('TTgram:error')
+
+const client = new Twitter({
 	consumer_key: process.env.consumer_key,
 	consumer_secret: process.env.consumer_secret,
 	access_token_key: process.env.access_token_key,
@@ -11,7 +15,16 @@ var client = new Twitter({
 });
 
 var token = process.env.telegram_token
-var bot = new TelegramBot(token, {polling: true})
+const bot = new Telegraf(token, {
+	telegram: {
+		apiRoot: 'https://api.telegram.org'
+	}
+})
+
+bot.telegram.sendMessage(process.env.chat_id, '*TTgran starting...*', {
+	parse_mode: 'Markdown'
+})
+log('TTgran starting...')
 
 function like(id) {
 	client.post('favorites/create', {id: id}, function(error, data, response) {
@@ -53,19 +66,45 @@ function unrt(id) {
 	})
 }
 
+function makeTwitter(text) {
+	client.post('statuses/update', {status: text},  function(error, tweet, response) {
+		if(!error) {
+			var user = twitter.user.screen_name || twitter.user.name
+			var id = twitter.id_str
+			var output = `
+<b>You said</b>: ${text}
+<b>URL</b>: <a href="https://twitter.com/${user}/status/${id}">Souce</a>
+`
+			bot.telegram.sendMessage(process.env.chat_id, output, {
+				parse_mode: "HTML",
+				disable_web_page_preview: true,
+			})
+			return tweet
+		} else {
+			logError(error)
+			bot.telegram.sendMessage(
+				process.env.chat_id,
+				`*ERROR*!\n*Code*: ${error.code}\n*Message*: ${error.message}`, {
+					parse_mode: "Markdown"
+				}
+			)
+			return false
+		}
+	})
+}
+
 var blackList = []
 var NewList = []
 var ntwitters = 0
 async function get() {
-	console.log('Get new twitters - ', (dateTime.create()).format('H:M'), '\nStarts:', ntwitters, 'twitters processed')
+	log('Get new twitters - ', (dateTime.create()).format('H:M'))
+	log('Starts:', ntwitters, 'twitters processed')
 	NewList = []
 	client.get('statuses/home_timeline', {}, function(error, tweets, response) {
+		log(error)
 		if (!error) {
 			var a = true
 			tweets.forEach(post => {
-				if (ntwitters == 321312) {
-					console.log(tweets)
-				}
 				var text = post.text
 				var user = post.user.screen_name || post.user.name
 				var id = post.id_str
@@ -93,7 +132,7 @@ async function get() {
 `
 				if (!blackList.includes(id)) {
 					ntwitters++
-					bot.sendMessage(process.env.chat_id, output, {
+					bot.telegram.sendMessage(process.env.chat_id, output, {
 						parse_mode: "HTML",
 						disable_web_page_preview: true,
 						reply_markup: {
@@ -108,46 +147,50 @@ async function get() {
 				NewList.push(id)
 			})
 			blackList = NewList
+			log('Sent new Twitters')
 		}
 	})
 }
 
-bot.on('callback_query', (result) => {
-	var id = result.id
-	var data = result.data
+bot.on('callback_query', (ctx) => {
+	log(ctx.callbackQuery.entities)
+	var data = ctx.callbackQuery.data
 	if (data.startsWith('love')) {
 		like(data.replace('love:', ''))
-		bot.answerCallbackQuery(id, {
-			text: 'Favorited ❤'
-		})
+		ctx.answerCbQuery('Favorited ❤')
 	} else if (data.startsWith('unlove')) {
 		unlike(data.replace('unlove:', ''))
-		bot.answerCallbackQuery(id, {
-			text: 'Unfavored 💔'
-		})
+		ctx.answerCbQuery('Unfavored 💔')
 	} else if (data.startsWith('rt')) {
 		rt(data.replace('rt:', ''))
-		bot.answerCallbackQuery(id, {
-			text: 'Retweeted 🔄'
-		})
+		ctx.answerCbQuery('Retweeted 🔄')
 	} else if (data.startsWith('unrt')) {
 		unrt(data.replace('unrt', ''))
-		bot.answerCallbackQuery(id, {
-			text: 'Undone ❌'
-		})
+		ctx.answerCbQuery('Undone ❌')
 	}
 })
 
-bot.onText(/\/ping/, (msg) => {
+bot.command('ping', (ctx) => {
 	var chat_id = msg.chat.id
-	bot.sendMessage(chat_id, 'Pong!')
+	ctx.replyWithMarkdown('*Pong*!')
 })
 
-bot.onText(/\/get/, (msg) => {
+bot.hears(/\/get[s]*/i, (ctx) => {
 	get()
 })
 
-get()
+bot.hears(/\/[new]*twitter[s]* (.*)/i, (ctx) => {
+	makeTwitter(ctx.match[1])
+})
+
+bot.catch((err) => {
+	logError(`Oooops ${err}`)
+})
+
+
+bot.startPolling()
+
+//get()
 new CronJob(process.env.cron_format, function() {
 	get()
 }, null, true, 'America/Los_Angeles')
