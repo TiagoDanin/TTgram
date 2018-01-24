@@ -31,5 +31,5 @@ $ npm install
 5. Run the TTgram
 
 ```bash
-$ node index.js
+$ npm start
 ```

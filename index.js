@@ -190,7 +190,7 @@ bot.catch((err) => {
 
 bot.startPolling()
 
-//get()
+get()
 new CronJob(process.env.cron_format, function() {
 	get()
 }, null, true, 'America/Los_Angeles')
