@@ -19,6 +19,7 @@ consumer_secret = 'ABCD0123456789'
 access_token_key = '123456789-ABCD0123456789'
 access_token_secret = 'ABCD0123456789'
 cron_format = '60 * * * * *'
+DEBUG = 'TTgram:bot, TTgram:error'
 ```
 
 4. Install dependencies
