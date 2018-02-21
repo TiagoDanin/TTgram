@@ -171,15 +171,14 @@ bot.on('callback_query', (ctx) => {
 })
 
 bot.command('ping', (ctx) => {
-	var chat_id = msg.chat.id
 	ctx.replyWithMarkdown('*Pong*!')
 })
 
-bot.hears(/\/get[s]*/i, (ctx) => {
+bot.hears(/\/get[s]*|\/[new_\s]*twitter[s]*$/i, (ctx) => {
 	get()
 })
 
-bot.hears(/\/[new]*twitter[s]* (.*)/i, (ctx) => {
+bot.hears(/\/[new_\s]*twitter[s]* (.*)/i, (ctx) => {
 	makeTwitter(ctx.match[1])
 })
 
