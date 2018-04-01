@@ -4,13 +4,15 @@
 
 Integration with Twitter <-> Telegram
 
-# Setup
-1. Get twitter token in https://apps.twitter.com/app
+## Installation
 
-2. Get Telegram token in https://t.me/BotFather
+1. Clone repo :)
 
-3. Set envelope variables
+2. Get twitter token in https://apps.twitter.com/app
 
+3. Get Telegram token in https://t.me/BotFather
+
+4. Set envelope variables
 ```
 telegram_token = 'ABCD:0123456789'
 chat_id = '0123456789'
@@ -22,14 +24,25 @@ cron_format = '60 * * * * *'
 DEBUG = 'TTgram:bot, TTgram:error'
 ```
 
-4. Install dependencies
-
+5. Install dependencies
 ```bash
 $ npm install
 ```
 
-5. Run the TTgram
-
+6. Run the TTgram
 ```bash
 $ npm start
 ```
+
+## Dependencies
+
+- [env-cmd](https://ghub.io/env-cmd): Executes a command using the envs in the provided env file
+- [cron](https://ghub.io/cron): Cron jobs for your node
+- [debug](https://ghub.io/debug): small debugging utility
+- [node-datetime](https://ghub.io/node-datetime): Extended Date object for javascript. 1. Handles offests by days and hours. 2. Built-in formatting function. 3. Time based value calculation.
+- [telegraf](https://ghub.io/telegraf): 📡 Modern Telegram bot framework
+- [twitter](https://ghub.io/twitter): Twitter API client library for node.js
+
+## License
+
+GPL-3.0
