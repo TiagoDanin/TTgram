@@ -12,19 +12,22 @@ const client = new Twitter({
 	consumer_secret: process.env.consumer_secret,
 	access_token_key: process.env.access_token_key,
 	access_token_secret: process.env.access_token_secret
-});
+})
 
 var token = process.env.telegram_token
-const bot = new Telegraf(token, {
-	telegram: {
-		apiRoot: 'https://api.telegram.org'
-	}
-})
+const bot = new Telegraf(token)
 
 bot.telegram.sendMessage(process.env.chat_id, '*TTgran starting...*', {
 	parse_mode: 'Markdown'
 })
 log('TTgran starting...')
+
+function trust(ctx) {
+	if (ctx.update.message.chat.id.toString() == process.env.chat_id.toString()) {
+		return true
+	}
+	return false
+}
 
 function like(id) {
 	client.post('favorites/create', {id: id}, function(error, data, response) {
@@ -171,15 +174,21 @@ bot.on('callback_query', (ctx) => {
 })
 
 bot.command('ping', (ctx) => {
-	ctx.replyWithMarkdown('*Pong*!')
+	if (trust(ctx)) {
+		ctx.replyWithMarkdown('*Pong*!')
+	}
 })
 
 bot.hears(/\/get[s]*|\/[new_\s]*twitter[s]*$/i, (ctx) => {
-	get()
+	if (trust(ctx)) {
+		get()
+	}
 })
 
 bot.hears(/\/[new_\s]*twitter[s]* (.*)/i, (ctx) => {
-	makeTwitter(ctx.match[1])
+	if (trust(ctx)) {
+		makeTwitter(ctx.match[1])
+	}
 })
 
 bot.catch((err) => {
