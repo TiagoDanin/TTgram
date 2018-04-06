@@ -10,21 +10,21 @@
 	<meta name="author" content="TiagoDanin">
 
 	<meta property="og:title" content="TiagoDanin">
-	<meta property="og:url" content="https://tiagodanin.github.io//TTgram">
+	<meta property="og:url" content="https://tiagodanin.github.io/TTgram">
 	<meta property="og:site_name" content="TTgram">
 	<meta property="og:description" content="Integration with Twitter <-> Telegram by Tiago Danin.">
 	<meta name="twitter:title" content="TTgram">
-	<meta name="twitter:url" content="https://tiagodanin.github.io//TTgram">
+	<meta name="twitter:url" content="https://tiagodanin.github.io/TTgram">
 
-	<link rel="shortcut icon" href="https://tiagodanin.github.io//images/favicon.ico">
-	<link rel="stylesheet" href="https://tiagodanin.github.io//uikit-3.0.0-beta.40/css/uikit.min.css">
-	<link rel="stylesheet" href="https://tiagodanin.github.io//css/theme.css">
-	<link rel="stylesheet" href="https://tiagodanin.github.io//css/reset.css">
-	<link rel="stylesheet" href="https://tiagodanin.github.io//css/colors.css">
-	<link rel="stylesheet" href="https://tiagodanin.github.io//css/style_time.css">
-	<link rel="stylesheet" href="https://tiagodanin.github.io//css/themify-icons.css">
-	<script src="https://tiagodanin.github.io//uikit-3.0.0-beta.40/js/uikit.min.js"></script>
-	<script src="https://tiagodanin.github.io//uikit-3.0.0-beta.40/js/uikit-icons.min.js"></script>
+	<link rel="shortcut icon" href="https://tiagodanin.github.io/images/favicon.ico">
+	<link rel="stylesheet" href="https://tiagodanin.github.io/uikit-3.0.0-beta.40/css/uikit.min.css">
+	<link rel="stylesheet" href="https://tiagodanin.github.io/css/theme.css">
+	<link rel="stylesheet" href="https://tiagodanin.github.io/css/reset.css">
+	<link rel="stylesheet" href="https://tiagodanin.github.io/css/colors.css">
+	<link rel="stylesheet" href="https://tiagodanin.github.io/css/style_time.css">
+	<link rel="stylesheet" href="https://tiagodanin.github.io/css/themify-icons.css">
+	<script src="https://tiagodanin.github.io/uikit-3.0.0-beta.40/js/uikit.min.js"></script>
+	<script src="https://tiagodanin.github.io/uikit-3.0.0-beta.40/js/uikit-icons.min.js"></script>
 </head>
 
 <body>
@@ -36,7 +36,7 @@
 
 				<ul class="my-breadcrumb uk-breadcrumb">
 					<li><span class="my-barcmd"><label class="color-blue"> ~ </label><label class="color-red">&#x276F;</label><label class="color-yellow">&#x276F;</label><label class="color-green">&#x276F;</label>  cd TiagoDanin<span></span></span></li>
-					<li><span>TTgram</span></li>
+						<li><span>TTgram</span></li>
 				</ul>
 
 			</ul>
@@ -47,8 +47,8 @@
 
 	<nav class="my-topbar uk-navbar uk-background-primary">
 		<div class="uk-navbar-left">
-			<a href="https://tiagodanin.github.io/" class="uk-navbar-item uk-logo">
-					<img src="https://tiagodanin.github.io//images/github.png" class="my-photo uk-margin-small-right">
+			<a href="https://tiagodanin.github.io" class="uk-navbar-item uk-logo">
+					<img src="https://tiagodanin.github.io/images/github.png" class="my-photo uk-margin-small-right">
 					<label class="uk-visible@s">TTgram</label>
 			</a>
 		</div>
@@ -83,8 +83,11 @@ cubohub: true
 	<h1 id="ttgram"><a href="#ttgram">TTgram</a></h1>
 <p><a href="https://nodei.co/npm/ttgram/"><img src="https://nodei.co/npm/ttgram.png?downloads=true&#x26;downloadRank=true&#x26;stars=true" alt="NPM"></a></p>
 <p>Integration with Twitter &#x3C;-> Telegram</p>
-<h1 id="setup"><a href="#setup">Setup</a></h1>
+<h2 id="installation"><a href="#installation">Installation</a></h2>
 <ol>
+<li>
+<p>Clone repo :)</p>
+</li>
 <li>
 <p>Get twitter token in <a href="https://apps.twitter.com/app">https://apps.twitter.com/app</a></p>
 </li>
@@ -104,14 +107,25 @@ access_token_secret = 'ABCD0123456789'
 cron_format = '60 * * * * *'
 DEBUG = 'TTgram:bot, TTgram:error'
 </code></pre>
-<ol start="4">
+<ol start="5">
 <li>Install dependencies</li>
 </ol>
 <pre><code class="hljs language-bash">$ npm install</code></pre>
-<ol start="5">
+<ol start="6">
 <li>Run the TTgram</li>
 </ol>
 <pre><code class="hljs language-bash">$ npm start</code></pre>
+<h2 id="dependencies"><a href="#dependencies">Dependencies</a></h2>
+<ul>
+<li><a href="https://ghub.io/env-cmd">env-cmd</a>: Executes a command using the envs in the provided env file</li>
+<li><a href="https://ghub.io/cron">cron</a>: Cron jobs for your node</li>
+<li><a href="https://ghub.io/debug">debug</a>: small debugging utility</li>
+<li><a href="https://ghub.io/node-datetime">node-datetime</a>: Extended Date object for javascript. 1. Handles offests by days and hours. 2. Built-in formatting function. 3. Time based value calculation.</li>
+<li><a href="https://ghub.io/telegraf">telegraf</a>: 📡 Modern Telegram bot framework</li>
+<li><a href="https://ghub.io/twitter">twitter</a>: Twitter API client library for node.js</li>
+</ul>
+<h2 id="license"><a href="#license">License</a></h2>
+<p>GPL-3.0</p>
 
 
 	<hr class="uk-margin-top-remove uk-divider-icon">
@@ -132,7 +146,7 @@ DEBUG = 'TTgram:bot, TTgram:error'
 		<div>
 			<div class="uk-card uk-card-default uk-card-hover uk-card-body">
 				<h3 class="uk-card-title"><span uk-icon="download"></span></h3>
-				<p>49 KB</p>
+				<p>52 KB</p>
 			</div>
 		</div>
 	</div>
@@ -146,7 +160,7 @@ DEBUG = 'TTgram:bot, TTgram:error'
 			<h3 class="uk-card-title uk-align-center">Contact Me &amp; Social Media</h3>
 
 			<ul class="uk-child-width-expand@s uk-margin-auto uk-text-center" uk-grid="">
-				<li><a href="https://tiagodanin.github.io//"><i class="ti-home"></i> WebSite</a></li>
+				<li><a href="https://tiagodanin.github.io/"><i class="ti-home"></i> WebSite</a></li>
 				<li><a href="https://telegram.me/WallpapersFull"><i class="ti-gallery"></i> My Wallpapers</a></li>
 				<li><a href="https://unsplash.com/@tiagodanin"><i class="ti-camera"></i> Unsplash</a></li>
 				<li><a href="https://github.com/TiagoDanin"><i class="ti-github"></i> GitHub</a></li>
@@ -173,7 +187,7 @@ DEBUG = 'TTgram:bot, TTgram:error'
 			<p class="uk-align-center">
 				<small>
 					<span uk-icon="code"></span> with <span uk-icon="heart"></span> by <a href="https://github.com/TiagoDanin">Tiago Danin</a>.
-					<br>Built with <a href="http://jus.js.org" target="_blank">Jus</a> and <a href="https://getuikit.com" target="_blank">UiKit</a> and <a href="https://github.com/CuboHub" target="_blank">CuboHub</a>
+					<br>Built with <a href="https://jus.js.org" target="_blank">Jus</a> and <a href="https://getuikit.com" target="_blank">UiKit</a> and <a href="https://github.com/CuboHub" target="_blank">CuboHub</a>
 					<br>Hosted in <a href="https://pages.github.com" target="_blank">GitHub Pages</a>
 				</small>
 			</p>
@@ -192,8 +206,8 @@ DEBUG = 'TTgram:bot, TTgram:error'
 			</div>
 		</div>
 	</div>
-	<script src="https://tiagodanin.github.io//js/jquery-1.10.2.min.js"></script>
-	<script src="https://tiagodanin.github.io//js/timeline.js"></script>
+	<script src="https://tiagodanin.github.io/js/jquery-1.10.2.min.js"></script>
+	<script src="https://tiagodanin.github.io/js/timeline.js"></script>
 </body>
 
 </html>
