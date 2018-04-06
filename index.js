@@ -70,7 +70,7 @@ function unrt(id) {
 }
 
 function makeTwitter(text) {
-	client.post('statuses/update', {status: text},  function(error, tweet, response) {
+	client.post('statuses/update', {status: text},  function(error, twitter, response) {
 		if(!error) {
 			var user = twitter.user.screen_name || twitter.user.name
 			var id = twitter.id_str
@@ -82,12 +82,12 @@ function makeTwitter(text) {
 				parse_mode: "HTML",
 				disable_web_page_preview: true,
 			})
-			return tweet
+			return twitter
 		} else {
 			logError(error)
 			bot.telegram.sendMessage(
 				process.env.chat_id,
-				`*ERROR*!\n*Code*: ${error.code}\n*Message*: ${error.message}`, {
+				`*ERROR*!\n*Code*: ${error[0].code}\n*Message*: ${error[0].message}`, {
 					parse_mode: "Markdown"
 				}
 			)
