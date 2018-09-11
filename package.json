@@ -24,7 +24,7 @@
   "dependencies": {
     "env-cmd": "8.0.2",
     "cron": "1.4.1",
-    "debug": "3.1.0",
+    "debug": "4.0.0",
     "node-datetime": "2.0.6",
     "telegraf": "3.21.2",
     "twitter": "1.7.1"
