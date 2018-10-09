@@ -25,7 +25,7 @@
     "env-cmd": "8.0.2",
     "cron": "1.4.1",
     "debug": "4.1.0",
-    "node-datetime": "2.0.6",
+    "node-datetime": "2.1.2",
     "telegraf": "3.21.2",
     "twitter": "1.7.1"
   },
