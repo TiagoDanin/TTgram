@@ -26,7 +26,7 @@
     "cron": "1.4.1",
     "debug": "4.1.0",
     "node-datetime": "2.1.2",
-    "telegraf": "3.21.2",
+    "telegraf": "3.24.1",
     "twitter": "1.7.1"
   },
   "bugs": {
