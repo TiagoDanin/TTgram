@@ -104,8 +104,9 @@ async function get() {
 	log('Starts:', ntwitters, 'twitters processed')
 	NewList = []
 	client.get('statuses/home_timeline', {}, function(error, tweets, response) {
-		log(error)
-		if (!error) {
+		if (error) {
+			log(error)
+		} else {
 			var a = true
 			tweets.forEach(post => {
 				var text = post.text
@@ -137,7 +138,7 @@ async function get() {
 					ntwitters++
 					bot.telegram.sendMessage(process.env.chat_id, output, {
 						parse_mode: "HTML",
-						disable_web_page_preview: true,
+						disable_web_page_preview: false,
 						reply_markup: {
 							inline_keyboard: [[
 								{text: favorites_status, callback_data: `${favorites_cstatus}:${id}`},
