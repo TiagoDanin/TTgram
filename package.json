@@ -1,6 +1,6 @@
 {
   "name": "ttgram",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Integration with Twitter <-> Telegram",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "intregration"
   ],
   "author": "Tiago Danin <TiagoDanin@outlook.com> (https://TiagoDanin.github.io)",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "dependencies": {
     "env-cmd": "8.0.2",
     "cron": "1.4.1",
