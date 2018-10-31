@@ -6,9 +6,8 @@ const CronJob = require('cron').CronJob
 const log = debug('TTgram:bot')
 const logError = debug('TTgram:error')
 
-const actions = require('./actions')
-const styles = require('./styles')
-const twitters = require('./twitters')
+const actions = require('./lib/actions')
+const twitter = require('./lib/twitter')
 
 const bot = new Telegraf(process.env.telegram_token)
 
@@ -40,12 +39,13 @@ bot.command('ping', (ctx) => {
 	ctx.replyWithMarkdown('*Pong*!')
 })
 
-bot.hears(/\/[new_\s]*twitter[s]* (.*)/i, (ctx) => {
-	//TODO CREATE TWITTER
+bot.hears(/\/[new_\s]*twitter[s]* (.*)/i, async (ctx) => {
+	await actions.create(ctx)
+	//TODO ERROR `*ERROR*!\n*Code*: ${error[0].code}\n*Message*: ${error[0].message}`
 })
 
 bot.hears(/\/get[s]*|\/[new_\s]*twitter[s]*$/i, (ctx) => {
-	getNewTwitters()
+	twitter.getTimeLine(ctx)
 })
 
 
@@ -75,7 +75,7 @@ bot.catch((err) => {
 
 bot.startPolling()
 
-getNewTwitters()
 new CronJob(process.env.cron_format, function() {
-	getNewTwitters()
+	//TODO FOR CTX OF USERS
+	twitter.getTimeLine(ctx)
 }, null, true, 'America/Los_Angeles')
