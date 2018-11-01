@@ -309,9 +309,9 @@ safer-buffer@^2.0.2, safer-buffer@^2.1.0, safer-buffer@~2.1.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
 
-sandwich-stream@^1.0.0:
-  version "1.0.0"
-  resolved "http://registry.npmjs.org/sandwich-stream/-/sandwich-stream-1.0.0.tgz#7830e45797b5933287f1f9b28f871907456262f2"
+sandwich-stream@^2.0.1:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/sandwich-stream/-/sandwich-stream-2.0.2.tgz#6d1feb6cf7e9fe9fadb41513459a72c2e84000fa"
 
 semver@^5.5.0:
   version "5.6.0"
@@ -341,14 +341,14 @@ sshpk@^1.7.0:
     safer-buffer "^2.0.2"
     tweetnacl "~0.14.0"
 
-telegraf@3.24.1:
-  version "3.24.1"
-  resolved "https://registry.yarnpkg.com/telegraf/-/telegraf-3.24.1.tgz#bfcfe326210ea9d341032a6e6910e36f4c25440c"
+telegraf@3.25.0:
+  version "3.25.0"
+  resolved "https://registry.yarnpkg.com/telegraf/-/telegraf-3.25.0.tgz#f08e463584803c36462e22668ad1e1f362f1f253"
   dependencies:
     "@types/node" "^10.1.2"
     debug "^4.0.1"
     node-fetch "^2.2.0"
-    sandwich-stream "^1.0.0"
+    sandwich-stream "^2.0.1"
     telegram-typings "^3.6.0"
 
 telegram-typings@^3.6.0:
