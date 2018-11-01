@@ -22,10 +22,11 @@
   "author": "Tiago Danin <TiagoDanin@outlook.com> (https://TiagoDanin.github.io)",
   "license": "MIT",
   "dependencies": {
-    "env-cmd": "8.0.2",
     "cron": "1.4.1",
     "debug": "4.1.0",
-    "node-datetime": "2.1.2",
+    "env-cmd": "8.0.2",
+    "graceful-fs": "4.1.6",
+    "jsonfile": "5.0.0",
     "telegraf": "3.24.1",
     "twitter": "1.7.1"
   },
