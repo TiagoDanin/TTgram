@@ -44,13 +44,14 @@ bot.use((ctx, next) => {
 			id = ctx.update.callback_query.from.id
 		}
 	}
-	console.log(id)
 	if (!users[id]) {
-		if (id.toString() == process.env.chat_id.toString()) {
+		if (id.toString() == process.env.admin_id.toString()) {
 			return next(ctx)
 		}
-		ctx.replyWithHTML('FALID')// TODO MSG TTgram GITHUB
-		return
+		return ctx.replyWithMarkdown(`
+📕 Sorry, you do not have access to this bot.
+🔖 TTGram is Open Source: [github.com/TiagoDanin/TTgram](https://github.com/TiagoDanin/TTgram)
+		`)
 	}
 	ctx.log = users[id].log
 	ctx.logError = users[id].logError
@@ -61,7 +62,7 @@ bot.use((ctx, next) => {
 	return next(ctx)
 })
 
-bot.telegram.sendMessage(process.env.chat_id, '*TTgram starting...*', {
+bot.telegram.sendMessage(process.env.admin_id, '*TTgram starting...*', {
 	parse_mode: 'Markdown'
 })
 log('TTgram starting...')
@@ -70,8 +71,31 @@ bot.command('ping', (ctx) => {
 	return ctx.replyWithMarkdown('*Pong*!')
 })
 
+bot.command('help', (ctx) => {
+	return ctx.replyWithMarkdown(`
+*Help*!
+/new twitter [text] - Create an new twitter
+/search [text] - Search tweets
+/about - About bot
+
+*Admin*!
+/add - Add new user
+/rem [telegram id] - Remove user
+	`)
+})
+
+bot.command(['start', 'about'], (ctx) => {
+	return ctx.replyWithMarkdown(`
+*TTgram*
+👤 Developer: Tiago Danin (@TiagoEDGE)
+🔖 TTGram is Open Source: [github.com/TiagoDanin/TTgram](https://github.com/TiagoDanin/TTgram)
+
+📕 /help
+`)
+})
+
 bot.command('add', (ctx) => {
-	if (ctx.message.from.id.toString() == process.env.chat_id.toString()) {
+	if (ctx.message.from.id.toString() == process.env.admin_id.toString()) {
 		return ctx.replyWithMarkdown(`
 *Reply this message!*
 Add new user
@@ -96,6 +120,22 @@ dsjahdja432343JHD7das_dffsdf_Dsda7
 	return ctx.replyWithMarkdown('*You are not admin of bot*!')
 })
 
+bot.hears(/^\/rem\s(.*)/i, (ctx) => {
+	if (ctx.message.from.id.toString() == process.env.admin_id.toString()) {
+		config = config.reduce((total, user) => {
+			if (user.id != ctx.match[1]) {
+				total.push(user)
+			}
+			return total
+		}, [])
+
+		loadUsers()
+		jsonfile.writeFileSync('config.json', config, {replacer: true})
+		return ctx.replyWithMarkdown('*User removed*!')
+	}
+	return ctx.replyWithMarkdown('*You are not admin of bot*!')
+})
+
 bot.hears(/^\/[new_\s]*twitter[s]* (.*)/i, async (ctx) => {
 	var post = await actions.create(ctx)
 	if (post.error) {
@@ -116,7 +156,7 @@ bot.hears(/^\/search\s(.*)/i, (ctx) => {
 bot.on('message', (ctx) => {
 	if (ctx.message.reply_to_message && ctx.message.reply_to_message.text) {
 		var replyMsg = ctx.message.reply_to_message.text
-		if (replyMsg.match('Reply this message!') && ctx.message.from.id.toString() == process.env.chat_id.toString()) {
+		if (replyMsg.match('Reply this message!') && ctx.message.from.id.toString() == process.env.admin_id.toString()) {
 			var params = (ctx.message.text || '').split('\n')
 			if (params.length != 5) {
 				return ctx.replyWithMarkdown('*Invalid user...*, use /add again.')
@@ -142,8 +182,6 @@ bot.on('message', (ctx) => {
 		}
 	}
 })
-//TODO bot.hears ADMIN CMD /remove [id]
-//TODO /help CMD
 
 bot.on('callback_query', (ctx) => {
 	var data = ctx.callbackQuery.data.split(':')
@@ -170,7 +208,7 @@ bot.catch((err) => {
 
 bot.startPolling()
 
-new CronJob(process.env.cron_format, function() {
+new CronJob(process.env.cron_job, function() {
 	for (var id in users) {
 		twitter.getTimeLine(users[id])
 	}
