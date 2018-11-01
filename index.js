@@ -106,7 +106,11 @@ bot.hears(/^\/[new_\s]*twitter[s]* (.*)/i, async (ctx) => {
 })
 
 bot.hears(/^\/get[s]*|\/[new_\s]*twitter[s]*$/i, (ctx) => {
-	twitter.getTimeLine(ctx)
+	return twitter.getTimeLine(ctx)
+})
+
+bot.hears(/^\/search\s(.*)/i, (ctx) => {
+	return twitter.getSearch(ctx)
 })
 
 bot.on('message', (ctx) => {
@@ -140,7 +144,6 @@ bot.on('message', (ctx) => {
 })
 //TODO bot.hears ADMIN CMD /remove [id]
 //TODO /help CMD
-//TODO /search CMD
 
 bot.on('callback_query', (ctx) => {
 	var data = ctx.callbackQuery.data.split(':')

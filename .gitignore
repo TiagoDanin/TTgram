@@ -57,3 +57,4 @@ typings/
 # dotenv environment variables file
 .env
 EnvPS.ps1
+config.json
