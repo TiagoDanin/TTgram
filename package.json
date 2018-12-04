@@ -22,7 +22,7 @@
   "author": "Tiago Danin <TiagoDanin@outlook.com> (https://TiagoDanin.github.io)",
   "license": "MIT",
   "dependencies": {
-    "cron": "1.5.0",
+    "cron": "1.5.1",
     "debug": "4.1.0",
     "env-cmd": "8.0.2",
     "graceful-fs": "4.1.15",
