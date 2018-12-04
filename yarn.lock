@@ -61,9 +61,9 @@ core-util-is@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
 
-cron@1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/cron/-/cron-1.5.0.tgz#50acb15ec640cff1f6f42091c9df2b81ed303066"
+cron@1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/cron/-/cron-1.5.1.tgz#84bf61574dc95e40698788261c7b23ab85446d5b"
   dependencies:
     moment-timezone "^0.5.x"
 
