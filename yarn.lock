@@ -341,9 +341,9 @@ sshpk@^1.7.0:
     safer-buffer "^2.0.2"
     tweetnacl "~0.14.0"
 
-telegraf@3.25.1:
-  version "3.25.1"
-  resolved "https://registry.yarnpkg.com/telegraf/-/telegraf-3.25.1.tgz#6b91b1b50651f88ca05008e6a019541f50dd9fb5"
+telegraf@3.25.5:
+  version "3.25.5"
+  resolved "https://registry.yarnpkg.com/telegraf/-/telegraf-3.25.5.tgz#d10c57e98085136866614e40c583aa4e607e1d85"
   dependencies:
     "@types/node" "^10.1.2"
     debug "^4.0.1"
