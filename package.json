@@ -23,7 +23,7 @@
   "license": "MIT",
   "dependencies": {
     "cron": "1.6.0",
-    "debug": "4.1.0",
+    "debug": "4.1.1",
     "env-cmd": "8.0.2",
     "graceful-fs": "4.1.15",
     "jsonfile": "5.0.0",
