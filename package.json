@@ -27,7 +27,7 @@
     "env-cmd": "8.0.2",
     "graceful-fs": "4.1.15",
     "jsonfile": "5.0.0",
-    "telegraf": "3.27.0",
+    "telegraf": "3.27.1",
     "twitter": "1.7.1"
   },
   "bugs": {
