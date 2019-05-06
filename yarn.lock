@@ -114,9 +114,9 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
 
-env-cmd@9.0.0:
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/env-cmd/-/env-cmd-9.0.0.tgz#1f4711ff01bf854cb9bc26ed09c137bb2d29a50f"
+env-cmd@9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/env-cmd/-/env-cmd-9.0.1.tgz#ba79f92c661973dccd0101f3964a59c752c9e13d"
   dependencies:
     commander "^2.20.0"
     cross-spawn "6.0.5"
