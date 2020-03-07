@@ -26,7 +26,7 @@
     "debug": "4.1.1",
     "env-cmd": "10.1.0",
     "graceful-fs": "4.2.3",
-    "jsonfile": "5.0.0",
+    "jsonfile": "6.0.1",
     "telegraf": "3.36.0",
     "twitter": "1.7.1"
   },
