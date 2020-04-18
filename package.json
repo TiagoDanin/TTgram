@@ -1,37 +1,36 @@
 {
-  "name": "ttgram",
-  "version": "2.0.1",
-  "description": "Integration with Twitter <-> Telegram",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Nice test :)\"",
-    "start": "env-cmd .env node index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TiagoDanin/TTgram.git"
-  },
-  "keywords": [
-    "telegram",
-    "telegram-bot",
-    "bot",
-    "telegrambot",
-    "twitter",
-    "intregration"
-  ],
-  "author": "Tiago Danin <TiagoDanin@outlook.com> (https://TiagoDanin.github.io)",
-  "license": "MIT",
-  "dependencies": {
-    "cron": "1.8.2",
-    "debug": "4.1.1",
-    "env-cmd": "10.1.0",
-    "graceful-fs": "4.2.3",
-    "jsonfile": "6.0.1",
-    "telegraf": "3.37.0",
-    "twitter": "1.7.1"
-  },
-  "bugs": {
-    "url": "https://github.com/TiagoDanin/TTgram/issues"
-  },
-  "homepage": "https://github.com/TiagoDanin/TTgram#readme"
+    "name": "ttgram",
+    "version": "2.0.1",
+    "description": "Integration with Twitter <-> Telegram",
+    "main": "index.js",
+    "scripts": {
+        "start": "env-cmd .env node index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/TiagoDanin/TTgram.git"
+    },
+    "keywords": [
+        "telegram",
+        "telegram-bot",
+        "bot",
+        "telegrambot",
+        "twitter",
+        "intregration"
+    ],
+    "author": "Tiago Danin <TiagoDanin@outlook.com> (https://TiagoDanin.github.io)",
+    "license": "MIT",
+    "dependencies": {
+        "cron": "1.8.2",
+        "debug": "4.1.1",
+        "env-cmd": "10.1.0",
+        "graceful-fs": "4.2.3",
+        "jsonfile": "6.0.1",
+        "telegraf": "3.37.0",
+        "twitter": "1.7.1"
+    },
+    "bugs": {
+        "url": "https://github.com/TiagoDanin/TTgram/issues"
+    },
+    "homepage": "https://github.com/TiagoDanin/TTgram#readme"
 }
