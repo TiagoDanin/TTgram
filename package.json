@@ -24,7 +24,7 @@
         "cron": "1.8.2",
         "debug": "4.1.1",
         "env-cmd": "10.1.0",
-        "graceful-fs": "4.2.3",
+        "graceful-fs": "4.2.4",
         "jsonfile": "6.0.1",
         "telegraf": "3.38.0",
         "twitter": "1.7.1"
